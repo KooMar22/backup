@@ -11,9 +11,10 @@ Open "backup.py" file in your text editor and modify the following lines
 On the left side enter sources which you would like to backup and on the right side their destinations. Also modify the root folder in which you would like to backup the files.
 For instance, I'm performing the syncronization of Documents, Downloads, My Music, Pictures and Steam Games from my computer into the appropriate sub-folders located on my external disc (E partition).
 
-If you would like to run as a batch file, simply create the new ".bat" file in your text editor and put the following lines:
-"@py.exe C:\Users\djhra\Documents\Learning_Programming\Uradi_sam_projekti\Markanova_backuparica\main.py %*
-@pause"
+If you would like to run as a batch file, simply create the new ".bat" file in your text editor and put the following lines (2 lines, each starts with "@":
+
+@py.exe C:\Users\djhra\Documents\Learning_Programming\Uradi_sam_projekti\Markanova_backuparica\main.py %*
+@pause
 
 Modify the first line to lead to the location of your script - "main.py".
 
