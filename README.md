@@ -14,6 +14,7 @@ For instance, I'm performing the syncronization of Documents, Downloads, My Musi
 If you would like to run as a batch file, simply create the new ".bat" file in your text editor and put the following lines:
 "@py.exe C:\Users\djhra\Documents\Learning_Programming\Uradi_sam_projekti\Markanova_backuparica\main.py %*
 @pause"
+
 Modify the first line to lead to the location of your script - "main.py".
 
 When you run it, either the "main.py" directly or the batch file, it will do the following:
