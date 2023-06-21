@@ -1,6 +1,6 @@
+import sys
 import logging
 from datetime import datetime
-import sys
 
 logger = logging.getLogger(__file__)
 logger.setLevel(logging.INFO)
