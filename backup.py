@@ -1,6 +1,6 @@
-from dirsync import sync
 import os
 import sys
+from dirsync import sync
 from log import log_info, log_error, log_warning
 from sync_status import count_remaining_files
 
@@ -43,11 +43,12 @@ def perform_backup():
             remaining_count = count_remaining_files([source], destination)
             print(f"Remaining files to be synced: {remaining_count}/{initial_remaining_count}")
             print(f"INFO: Backup of {os.path.basename(source)} had completed successfully.\n\n")
-        except OSError:
-            warnings = sync(source, destination, "sync", purge=False, create=False, verbose=0)
-            backup_warnings[source] = warnings
-            if warnings:
-                raise Exception(f"Backup of {os.path.basename(source)} failed with {len(warnings)} errors")
+        except OSError as error:
+            log_error(f"ERROR: {error}")
+            raise Exception(f"Backup of {os.path.basename(source)} failed with {error}")
+        except Exception as warning:
+            log_warning(f"WARNING: {warning}")
+            backup_warnings[source] = warning
     return backup_warnings
 
 
@@ -61,6 +62,7 @@ def catch_errors():
     except Exception as error:
         print(f"ERROR: {error}")
         log_error(f"ERROR: {error}")
+
 
 
 def execute():
